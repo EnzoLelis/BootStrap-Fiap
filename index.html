@@ -58,26 +58,8 @@
             Cadastrar Tarefa
         </button>
 
-        <div class="row mt-3">
-            <div class="col-lg-3 col-md-6 col-12">
-                <div class="card">
-                    <div class="card-header">
-                        Estudar para CP
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text">Fazer os exercícios para estudas.</p>
-                        <p>
-                            <span class="badge text-bg-warning">Estudar</span>
-                        </p>
-                        <a href="#" class="btn btn-success">
-                            <i class="bi bi-check-lg"></i>
-                        </a>
-                        <a href="#" class="btn btn-danger">
-                            <i class="bi bi-trash"></i>
-                        </a>
-                    </div>
-                </div> <!-- card -->
-            </div> <!-- col -->
+        <div id = "tarefas" class="row mt-3">
+           
         </div> <!-- row -->
     </div> <!-- container -->
 
@@ -97,24 +79,31 @@
                             <label for="titulo" class="form-label">Título</label>
                             <input type="text" class="form-control" id="titulo" aria-describedby="titulo">
                         </div>
+
                         <div class="mb-3">
                             <label for="descricao" class="form-label">Descrição</label>
                             <input type="text" class="form-control" id="descricao">
                         </div>
+
+                        <div class="mb-3">
+                            <label for="pts" class="form-label">pts</label>
+                            <input type="number" class="form-control" id="pontos">
+                        </div>
+
                         <div class="mb-3">
                             <label for="categoria" class="form-label">Categoria</label>
                             <select class="form-select" aria-label="categoria" id="categoria">
                                 <option selected>selecione a categoria</option>
-                                <option value="1">Estudos</option>
-                                <option value="2">Trabalho</option>
-                                <option value="3">Pessoal</option>
+                                <option value=>Estudos</option>
+                                <option value=>Trabalho</option>
+                                <option value=>Pessoal</option>
                             </select>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary">Salvar</button>
+                    <button id="salvar" type="button" class="btn btn-primary">Salvar</button>
                 </div>
             </div>
         </div>
@@ -123,7 +112,10 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+    </script>
+
+    <script src="./crud.js"></script>
 
 </body>
 
