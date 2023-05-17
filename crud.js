@@ -4,36 +4,43 @@ let lista_filmes = []
 
 window.addEventListener("load", () => {
     lista_filmes = JSON.parse(localStorage.getItem("lista_filmes"))
-    lista_filmes.forEach((filme) => {
-        document.querySelector("#filmes").innerHTML += gerarCard(filme)
+    if (lista_filmes !=null) {
+    lista_filmes.forEach((Filme) => {
+        document.querySelector("#Filme").innerHTML += gerarCard(Filme)
     })
 
+   }
 })
+
 
 function cadastrar(){
     const modal = bootstrap.Modal.getInstance(document.querySelector("#exampleModal"))
-    let Nome_do_Filme = document.querySelector("#Nome do Filme").value
+    let Nome = document.querySelector("#Nome").value
     let Elenco = document.querySelector("#Elenco").value
-    let nota = document.querySelector("#nota").value
+    let Nota = document.querySelector("#Nota").value
     let Avaliação = document.querySelector("#Avaliação").value
 
-    const tarefa = {
-        Nome_do_Filme,
+    const Filme = {
+        Nome,
         Elenco,
-        nota,
+        Nota,
         Avaliação,
     }
 
-    if (filme.Nome_do_Filme.length == 0) {
-        document.querySelector("#Nome do Filme").classList.add("is-invalid")
+    if (Filme.Nome.length == 0) {
+        document.querySelector("#Nome").classList.add("is-invalid")
         return 
     }
 
-    lista_tarefas.push(tarefa)
+    if (lista_filmes==null) {
+        lista_filmes = []
+    }
 
-   document.querySelector("#Filmes").innerHTML += gerarCard(tarefa)
+    lista_filmes.push(Filme)
 
-   document.querySelector("#Nome do Filme").value = ""
+   document.querySelector("#tarefas").innerHTML += gerarCard(Filme)
+
+   document.querySelector("#Nome").value = ""
    document.querySelector("#Elenco").value = ""
 
    localStorage.setItem("lista_filmes", JSON.stringify(lista_filmes))
@@ -45,23 +52,23 @@ function apagar(botao){
     botao.parentNode.parentNode.remove()
 }
 
-function gerarCard(filme){
+function gerarCard(Filme){
     return `  
 
     
         <div class="col-lg-3 col-md-6 col-12">
             <div class="card">
                 <div class="card-header">
-                    ${filme.Nome_do_Filme}
+                    ${Filme.Nome}
                 </div>
                 <div class="card-body">
-                    <p class="card-text">${filme.Elenco}.</p>
+                    <p class="card-text">${Filme.Elenco}.</p>
                     <p>
                         <span class="badge text-bg-warning">
-                        ${filme.Avaliação}
+                        ${Filme.Avaliação}
                         </span>
                     </p>
-                    <p>${filme.nota}pts</p>
+                    <p>${Filme.nota}pts</p>
                     <a href="#" class="btn btn-success">
                         <i class="bi bi-check-lg"></i>
                     </a>
