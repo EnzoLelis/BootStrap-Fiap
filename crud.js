@@ -8,10 +8,9 @@ window.addEventListener("load", () => {
     lista_filmes.forEach((Filme) => {
         document.querySelector("#Filme").innerHTML += gerarCard(Filme)
     })
+  }
 
-   }
 })
-
 
 function cadastrar(){
     const modal = bootstrap.Modal.getInstance(document.querySelector("#exampleModal"))
@@ -52,23 +51,23 @@ function apagar(botao){
     botao.parentNode.parentNode.remove()
 }
 
-function gerarCard(Filme){
+function gerarCard(filme){
     return `  
 
     
         <div class="col-lg-3 col-md-6 col-12">
             <div class="card">
                 <div class="card-header">
-                    ${Filme.Nome}
+                    ${filme.Nome}
                 </div>
                 <div class="card-body">
-                    <p class="card-text">${Filme.Elenco}.</p>
+                    <p class="card-text">${filme.Elenco}.</p>
                     <p>
                         <span class="badge text-bg-warning">
-                        ${Filme.Avaliação}
+                        ${filme.Avaliação}
                         </span>
                     </p>
-                    <p>${Filme.nota}pts</p>
+                    <p>${filme.Nota}pts</p>
                     <a href="#" class="btn btn-success">
                         <i class="bi bi-check-lg"></i>
                     </a>
